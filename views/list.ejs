@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>To Do List</title>
+        <meta name="description" content="todo list">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="box" id="heading">
+            <h1><%= kindOf %> </h1>
+        </div>
+
+        <div class="box">
+                <% for(var i=0; i< addTasks.length;i++){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p><%= addTasks[i] %></p>
+                </div>
+                <% } %>
+                <form class="item" action="/" method="POST">
+                    <input type="text" name="newTask" placeholder="New Item" autocomplete="off">
+                    <button type="submit">+</button>
+                </form>
+        </div>
+
+    </body>
+</html>
