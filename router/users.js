@@ -23,8 +23,10 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/logout', (req,res) => {
-    req.logout();
-    res.redirect('/users/login');
+    req.logout(function(err) {  // do this
+        if (err) { return next(err); }// do this
+        res.redirect('/users/login');
+      });
 });
 
 router.get('/delete', (req, res) => {
