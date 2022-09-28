@@ -7,6 +7,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const { connectMongoDb } = require('./mongodb')
 const settings = require('./controllers/settings')
+const morgan = require("morgan");
 
 const PORT = process.env.PORT || settings.port;
 const users = require('./router/users')
@@ -23,6 +24,7 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cookieParser());
+app.use(morgan("dev"));
 
 app.use(passport.initialize());
 app.use(passport.session());
